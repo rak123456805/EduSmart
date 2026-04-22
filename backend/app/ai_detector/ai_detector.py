@@ -250,15 +250,15 @@ graph.add_node("merge_content", content_merger_node)
 graph.add_node("chunking", chunking_node)
 graph.add_node("llm_scoring", llm_scoring_node)
 graph.add_node("aggregation", aggregation_node)
-graph.add_node("report", report_node)
+graph.add_node("generate_report", report_node)
 
 graph.add_edge(START, "pdf_extract")
 graph.add_edge("pdf_extract", "merge_content")
 graph.add_edge("merge_content", "chunking")
 graph.add_edge("chunking", "llm_scoring")
 graph.add_edge("llm_scoring", "aggregation")
-graph.add_edge("aggregation", "report")
-graph.add_edge("report", END)
+graph.add_edge("aggregation", "generate_report")
+graph.add_edge("generate_report", END)
 
 app = graph.compile()
 
