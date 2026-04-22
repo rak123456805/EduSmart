@@ -1,0 +1,11 @@
+fastapi[standard]
+langgraph
+langfuse
+langchain
+langchain-openai
+langchain_google_genai
+langfuse-langchain
+pymupdf
+sqlalchemy
+psycopg2-binary
+alembic
