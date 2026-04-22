@@ -1,8 +1,8 @@
 from fastapi import APIRouter, UploadFile, File, Depends
 from sqlalchemy.orm import Session
-from db import get_db
-from ai_detector.ai_detector import app as ai_app, langfuse_handler
-from services.ai_analysis_service import save_ai_score
+from app.db import get_db
+from app.ai_detector.ai_detector import app as ai_app, langfuse_handler
+from app.services.ai_analysis_service import save_ai_score
 
 router = APIRouter()
 

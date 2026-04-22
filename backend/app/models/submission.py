@@ -4,7 +4,7 @@ from sqlalchemy.sql import func
 from sqlalchemy.orm import relationship
 import uuid
 
-from db import Base
+from app.db import Base
 
 class Submission(Base):
     __tablename__ = "submissions"

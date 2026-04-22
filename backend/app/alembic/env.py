@@ -11,8 +11,8 @@ from sqlalchemy import pool
 from alembic import context
 
 # 2. Keep these imports as they are
-from db import Base
-from models import ai_analysis, submission,profiles
+from app.db import Base
+from app.models import ai_analysis, submission,profiles
 
 # 3. Set target_metadata here
 target_metadata = Base.metadata

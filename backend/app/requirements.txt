@@ -1,10 +1,10 @@
 fastapi[standard]
 langgraph
-langfuse>=2.0.0
+langfuse==2.35.0
+langfuse-langchain==0.1.0
 langchain
 langchain-openai
 langchain_google_genai
-langfuse-langchain
 pymupdf
 sqlalchemy
 psycopg2-binary

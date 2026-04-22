@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from models.ai_analysis import AIAnalysis
+from app.models.ai_analysis import AIAnalysis
 
 def save_ai_score(db: Session, submission_id, student_id, score):
     if score < 40:
