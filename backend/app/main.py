@@ -9,14 +9,12 @@ from app.db import engine, Base
 
 app = FastAPI()
 
-origins = [
-    "http://localhost:5173",
-    "https://edu-smart-tzwb.vercel.app",
-]
+# Origins for local and production
+allow_origin_regex = r"https://.*\.vercel\.app|http://localhost:5173"
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origin_regex=allow_origin_regex,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
