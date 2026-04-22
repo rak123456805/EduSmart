@@ -20,9 +20,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+
 
 
 from fastapi.staticfiles import StaticFiles
@@ -32,7 +30,27 @@ app.include_router(ai_router, prefix="/api", tags=["AI Detection"])
 app.include_router(submission_routes,prefix="/api",tags=["Submission"])
 app.include_router(profiles_routes,prefix="/api",tags=["Profile"])
 
+from fastapi.responses import FileResponse
+
 # Serve Static Files (Frontend)
 static_dir = os.path.join(os.path.dirname(__file__), "../../static")
-if os.path.exists(static_dir):
-    app.mount("/", StaticFiles(directory=static_dir, html=True), name="static")
+
+@app.get("/{full_path:path}")
+async def serve_spa(full_path: str):
+    # Skip API routes
+    if full_path.startswith("api"):
+        # This shouldn't happen if routers are included correctly, 
+        # but as a safeguard:
+        return None 
+    
+    # Check if the file exists in static directory
+    file_path = os.path.join(static_dir, full_path)
+    if os.path.isfile(file_path):
+        return FileResponse(file_path)
+    
+    # Fallback to index.html for SPA routing
+    index_path = os.path.join(static_dir, "index.html")
+    if os.path.exists(index_path):
+        return FileResponse(index_path)
+    
+    return {"detail": "Not Found"}
