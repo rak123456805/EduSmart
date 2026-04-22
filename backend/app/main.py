@@ -25,6 +25,14 @@ async def root():
     return {"message": "Hello World"}
 
 
+from fastapi.staticfiles import StaticFiles
+import os
+
 app.include_router(ai_router, prefix="/api", tags=["AI Detection"])
 app.include_router(submission_routes,prefix="/api",tags=["Submission"])
 app.include_router(profiles_routes,prefix="/api",tags=["Profile"])
+
+# Serve Static Files (Frontend)
+static_dir = os.path.join(os.path.dirname(__file__), "../../static")
+if os.path.exists(static_dir):
+    app.mount("/", StaticFiles(directory=static_dir, html=True), name="static")
