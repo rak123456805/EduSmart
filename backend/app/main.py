@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routes.ai_routes import router as ai_router
-from app.routes.submission_routes import router as submission_routes
-from app.routes.profiles_routes import router as profiles_routes
-from app.db import engine, Base
+from routes.ai_routes import router as ai_router
+from routes.submission_routes import router as submission_routes
+from routes.profiles_routes import router as profiles_routes
+from db import engine, Base
 
 
 
