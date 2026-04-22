@@ -1,6 +1,6 @@
 fastapi[standard]
 langgraph
-langfuse
+langfuse>=2.0.0
 langchain
 langchain-openai
 langchain_google_genai
@@ -9,3 +9,4 @@ pymupdf
 sqlalchemy
 psycopg2-binary
 alembic
+python-dotenv

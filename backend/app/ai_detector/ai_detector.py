@@ -28,7 +28,7 @@ if not os.getenv("LANGFUSE_HOST") and LANGFUSE_BASE_URL:
 langfuse_handler = CallbackHandler()
 
 llm = ChatGoogleGenerativeAI(
-    model="gemini-2.5-flash",
+    model="gemini-1.5-flash",
     api_key=GEMINI_API_KEY,
     temperature=0
 )
