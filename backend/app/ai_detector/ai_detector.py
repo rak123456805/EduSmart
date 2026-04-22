@@ -6,7 +6,15 @@ from pydantic import BaseModel, Field
 
 from langgraph.graph import StateGraph, START, END
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langfuse.langchain import CallbackHandler
+try:
+    from langfuse.langchain import CallbackHandler
+except ImportError:
+    try:
+        from langfuse.callback import CallbackHandler
+    except ImportError:
+        # For even newer versions or different structures
+        from langfuse.openai import CallbackHandler as _CH # fallback placeholder if needed
+        CallbackHandler = _CH
 
 
 import fitz  # PyMuPDF

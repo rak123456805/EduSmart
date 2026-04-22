@@ -1,6 +1,6 @@
 fastapi[standard]==0.115.0
-langgraph
-langfuse==2.33.0
+langgraph==0.2.39
+langfuse==2.101.0
 langchain
 langchain-openai
 langchain_google_genai
