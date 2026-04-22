@@ -1,11 +1,11 @@
-fastapi[standard]
+fastapi[standard]==0.115.0
 langgraph
-langfuse
+langfuse==2.33.0
 langchain
 langchain-openai
 langchain_google_genai
 pymupdf
-sqlalchemy
-psycopg2-binary
+sqlalchemy==2.0.35
+psycopg2-binary==2.9.9
 alembic
 python-dotenv
